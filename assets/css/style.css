@@ -1,0 +1,35 @@
+p {
+  padding: 0;
+  margin: 10px 0;
+  font-weight: 300;
+}
+
+dl {
+  width: 40%;
+  margin: 0 auto;
+}
+
+dt {
+  display: block;
+  float: left;
+  text-align: left;
+}
+
+dt:after {
+  content: ':';
+}
+
+dd {
+  display: block;
+  text-align: right;
+}
+
+.game {
+  max-width: 600px;
+}
+
+img {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+}
