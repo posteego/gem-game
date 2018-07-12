@@ -39,6 +39,7 @@ function randomNum(gemgen, max, min){
 
 function setup() {
   // set values and update on screen
+  
   current = 0;
   
   // set gem values
@@ -64,61 +65,33 @@ function valueUpdate() {
 function clicks() {
   // update user value depending on the gem they click
 
-  $("#0").on('click', function() {
-    current += gem[0];
+  // gem is clicked
+  $('.gems img').on('click', function() {
+    // get gem id
+    let num = $(this).attr('id');
+
+    // update user score based on value stored in gem
+    current += gem[num];
+    // print result
     valueUpdate();
+
+    // check if user wins or loses
     if (current > random_num) {
+      // turn off event listener for no overlap in next game
+      $('.gems img').off('click');
       losses++;
       alert("you lose!");
       game();
-    } if (current === random_num) {
+    } else if (current === random_num) {
+      // turn off event listener for no overlap in next game
+      $('.gems img').off('click');
       wins++;
       alert("you win!");
       game();
     }
+
   });
 
-  $("#1").on('click', function() {
-    current += gem[1];
-    valueUpdate();
-    if (current > random_num) {
-      losses++;
-      alert("you lose!");
-      game();
-    } if (current === random_num) {
-      wins++;
-      alert("you win!");
-      game();
-    }
-  });
-
-  $("#2").on('click', function() {
-    current += gem[2];
-    valueUpdate();
-    if (current > random_num) {
-      losses++;
-      alert("you lose!");
-      game();
-    } if (current === random_num) {
-      wins++;
-      alert("you win!");
-      game();
-    }
-  });
-
-  $("#3").on('click', function() {
-    current += gem[3];
-    valueUpdate();
-    if (current > random_num) {
-      losses++;
-      alert("you lose!");
-      game();
-    } if (current === random_num) {
-      wins++;
-      alert("you win!");
-      game();
-    }
-  });
 }
 
 
@@ -132,4 +105,5 @@ function game() {
   clicks();
 }
 
+// start game
 game();
